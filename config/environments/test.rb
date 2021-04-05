@@ -1,4 +1,4 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -57,4 +57,14 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+                                                                 provider: 'twitter',
+                                                                 uid: '123545',
+                                                                 info: { name: 'mockuser',
+                                                                         image: 'https://hpepublichealth.ca/wp-content/uploads/2020/05/GettyImages-1215981332-786x424.jpg' },
+                                                                 credentials: { token: 'sdfsd3q3raf',
+                                                                                secret: 'sdf3wrsdrqy57' }
+
+                                                               })
 end
